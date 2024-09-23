@@ -11,7 +11,6 @@ try {
     die('Conexão falhou: ' . $e->getMessage());
 }
 
-// CRUD para professor
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if ($_POST['action'] == 'add_professor') {
         $nome = $_POST['nome'];
