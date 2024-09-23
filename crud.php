@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 }
 
-// Excluir professor ou aula
 if (isset($_GET['delete_professor'])) {
     $id = $_GET['delete_professor'];
     $stmt = $pdo->prepare("DELETE FROM professor WHERE id = :id");
@@ -45,11 +44,9 @@ if (isset($_GET['delete_professor'])) {
     $stmt->execute(['id' => $id]);
 }
 
-// Listar professores
 $stmt = $pdo->query("SELECT * FROM professor");
 $professores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Listar aulas
 $stmt = $pdo->query("SELECT * FROM aulas");
 $aulas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
